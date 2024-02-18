@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  input {
+    @apply ml-3 px-2 py-1 border rounded-lg;
+  }
+
+  button {
+    @apply bg-indigo-500 px-4 py-2 rounded-lg text-white;
+  }
+}
