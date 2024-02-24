@@ -10,17 +10,17 @@ export const CreateItem = () => {
   const [group, setGroup] = useState("bills");
   const [category, setCategory] = useState("");
   const [budget, setBudget] = useState("");
-
+  
   function handleChange() {
     setModal(!modal);
   }
 
-  function handleCreateItem(e) {
+  async function handleCreateItem(e) {
     e.preventDefault();
 
     const formData = { group, category, budget_plan: budget };
 
-    fetch("https://v1.appbackend.io/v1/rows/dA6u4jpqjVHH", {
+    await fetch("https://v1.appbackend.io/v1/rows/dA6u4jpqjVHH", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -53,6 +53,7 @@ export const CreateItem = () => {
               <select
                 name="group"
                 id="group"
+                value={group}
                 className="select select-bordered w-full max-w-xs"
                 onChange={(e) => setGroup(e.target.value)}
               >
@@ -74,9 +75,7 @@ export const CreateItem = () => {
               />
             </div>
             <div className="form-control">
-              <label htmlFor="budget_plan">
-                Budget
-              </label>
+              <label htmlFor="budget_plan">Budget</label>
               <input
                 type="number"
                 name="budget_plan"

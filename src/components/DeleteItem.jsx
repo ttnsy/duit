@@ -13,7 +13,7 @@ export const DeleteItem = ({ id }) => {
   }
 
   async function handleDelete() {
-    fetch("https://v1.appbackend.io/v1/rows/dA6u4jpqjVHH", {
+    await fetch("https://v1.appbackend.io/v1/rows/dA6u4jpqjVHH", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
