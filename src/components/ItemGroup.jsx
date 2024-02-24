@@ -7,8 +7,8 @@ export const ItemGroup = ({ data, groups }) => {
         const filtered = data.filter((i) => i.group === item);
         return (
           <>
-            <tr>
-              <h3 className="text-sm font-bold text-gray-700 uppercase">{item}</h3>
+            <tr className="text-sm font-bold text-gray-700 bg-gray-50">
+              <td className="py-2 px-6" colSpan="5">{item}</td>
             </tr>
             <Items data={filtered} />
           </>
