@@ -1,4 +1,4 @@
-import { EditButton } from "@/components/Buttons";
+import { EditItem } from "@/components/EditItem";
 import { DeleteItem } from "@/components/DeleteItem";
 
 export const Items = ({ data }) => {
@@ -14,7 +14,7 @@ export const Items = ({ data }) => {
               {item.budget_plan - (item.budget_actual || 0)}
             </td>
             <td className="flex justify-center gap-1 py-3">
-              <EditButton />
+              <EditItem item={item} />
               <DeleteItem id={item._id} />
             </td>
           </tr>
