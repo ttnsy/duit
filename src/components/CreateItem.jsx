@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { IoAddSharp } from "react-icons/io5";
 
 export const CreateItem = () => {
   const router = useRouter();
@@ -37,7 +38,8 @@ export const CreateItem = () => {
   return (
     <div>
       <button className="btn" onClick={handleChange}>
-        Add New
+        <IoAddSharp size={20}/>
+        New Allocation
       </button>
       <input
         type="checkbox"
@@ -53,8 +55,8 @@ export const CreateItem = () => {
               <select
                 name="group"
                 id="group"
-                value={group}
                 className="select select-bordered w-full max-w-xs"
+                value={group}
                 onChange={(e) => setGroup(e.target.value)}
               >
                 <option value="bills">Bills</option>
@@ -70,6 +72,7 @@ export const CreateItem = () => {
                 name="category"
                 id="category"
                 className="input input-bordered w-full max-w-xs"
+                value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required
               />
@@ -81,6 +84,7 @@ export const CreateItem = () => {
                 name="budget_plan"
                 id="budget_plan"
                 className="input input-bordered w-full max-w-xs"
+                value={budget}
                 onChange={(e) => setBudget(e.target.value)}
                 required
               />
