@@ -1,8 +1,9 @@
-import { ItemTable } from "@/components/ItemTable";
 import { AddButton } from "@/components/Buttons";
 import { getData } from "@/lib/data";
+import { ItemTable } from "@/components/ItemTable";
 
 const { data } = await getData();
+const groups = [...new Set(data.map((x) => x.group))];
 
 export default async function Home() {
   return (
@@ -11,7 +12,7 @@ export default async function Home() {
         <div className="flex items-center justify-between gap-1 mb-5">
           <AddButton />
         </div>
-        <ItemTable data={data} />
+        <ItemTable data={data} groups={groups} />
       </div>
     </main>
   );
