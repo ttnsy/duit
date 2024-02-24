@@ -12,7 +12,7 @@ export const Items = ({ data }) => {
             <td className="py-3 px6">{item.budget_plan - (item.budget_actual || 0)}</td>
             <td className="flex justify-center gap-1 py-3">
               <EditButton />
-              <DeleteButton />
+              <DeleteButton id={item._id}/>
             </td>
           </tr>
         );

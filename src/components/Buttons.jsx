@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { IoAddSharp, IoPencil, IoTrashOutline } from "react-icons/io5";
 
 export const AddButton = () => {
@@ -21,16 +24,24 @@ export const EditButton = () => {
   );
 };
 
-export const DeleteButton = () => {
+export const DeleteButton = ({ id }) => {
+  async function handleDelete() {
+    fetch("https://v1.appbackend.io/v1/rows/dA6u4jpqjVHH", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify([id]),
+    });
+  }
+
   return (
-    <Link href="/create" className="rounded-sm border p-1 hover:bg-gray-100">
+    <button onClick={handleDelete}>
       <IoTrashOutline size={20} />
-    </Link>
+    </button>
   );
 };
 
 export const BackButton = () => {
-  return (
-    <Link href="/">Back</Link>
-  )
-}
+  return <Link href="/">Back</Link>;
+};
