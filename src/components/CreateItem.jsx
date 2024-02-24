@@ -7,7 +7,7 @@ export const CreateItem = () => {
   const router = useRouter();
   const [modal, setModal] = useState(false);
 
-  const [group, setGroup] = useState("Bills");
+  const [group, setGroup] = useState("bills");
   const [category, setCategory] = useState("");
   const [budget, setBudget] = useState("");
 
