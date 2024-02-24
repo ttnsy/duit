@@ -28,3 +28,9 @@ export const DeleteButton = () => {
     </Link>
   );
 };
+
+export const BackButton = () => {
+  return (
+    <Link href="/">Back</Link>
+  )
+}
