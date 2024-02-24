@@ -37,7 +37,7 @@ export const CreateItem = () => {
 
   return (
     <div>
-      <button className="btn" onClick={handleChange}>
+      <button className="btn btn-primary" onClick={handleChange}>
         <IoAddSharp size={20}/>
         New Allocation
       </button>

@@ -35,7 +35,7 @@ export const EditItem = ({ item }) => {
 
   return (
     <div>
-      <button className="btn btn-primary btn-sm" onClick={handleChange}>
+      <button className="btn btn-sm" onClick={handleChange}>
         <IoPencil size={20} />
       </button>
       <input
