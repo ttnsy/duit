@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { IoPencil } from "react-icons/io5";
-
 import toast from "react-hot-toast";
 
 import { updateData } from "@/lib/fetchAPI";
@@ -15,6 +14,7 @@ export const EditItem = ({ item }) => {
   const [group, setGroup] = useState(item.group);
   const [category, setCategory] = useState(item.category);
   const [budget, setBudget] = useState(item.budget_plan);
+  const [spend, setSpend] = useState(item.budget_actual);
 
   function handleChange() {
     setModal(!modal);
@@ -24,13 +24,20 @@ export const EditItem = ({ item }) => {
     e.preventDefault();
 
     try {
-      const formData = { _id: item._id, group, category, budget_plan: budget };
+      const formData = {
+        _id: item._id,
+        group,
+        category,
+        budget_plan: budget,
+        budget_actual: spend,
+      };
+
       await updateData(formData);
 
       router.refresh();
 
       setModal(false);
-      toast.success(`${group} has updated!`);
+      toast.success(`${category} has updated!`);
     } catch (error) {
       setModal(false);
       toast.error(error.message);
@@ -84,6 +91,17 @@ export const EditItem = ({ item }) => {
                 id="budget_plan"
                 value={budget}
                 onChange={(e) => setBudget(Number(e.target.value))}
+                required
+              />
+            </div>
+            <div className="form-control">
+              <label htmlFor="budget_actual">Spend</label>
+              <input
+                type="number"
+                name="budget_actual"
+                id="budget_actual"
+                value={spend}
+                onChange={(e) => setSpend(Number(e.target.value))}
                 required
               />
             </div>
