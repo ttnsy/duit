@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { IoTrashOutline } from "react-icons/io5";
 
+import { deleteData } from "@/lib/fetchAPI";
+
 export const DeleteItem = ({ id }) => {
   const router = useRouter();
   const [modal, setModal] = useState(false);
@@ -13,13 +15,7 @@ export const DeleteItem = ({ id }) => {
   }
 
   async function handleDelete() {
-    await fetch("https://v1.appbackend.io/v1/rows/dA6u4jpqjVHH", {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify([id]),
-    });
+    deleteData(id);
 
     router.refresh();
     setModal(false);

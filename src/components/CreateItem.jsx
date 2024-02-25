@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { IoAddSharp } from "react-icons/io5";
+import { postData } from "@/lib/fetchAPI";
 
 export const CreateItem = () => {
   const router = useRouter();
@@ -11,7 +12,7 @@ export const CreateItem = () => {
   const [group, setGroup] = useState("bills");
   const [category, setCategory] = useState("");
   const [budget, setBudget] = useState("");
-  
+
   function handleChange() {
     setModal(!modal);
   }
@@ -20,14 +21,7 @@ export const CreateItem = () => {
     e.preventDefault();
 
     const formData = { group, category, budget_plan: budget };
-
-    await fetch("https://v1.appbackend.io/v1/rows/dA6u4jpqjVHH", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify([formData]),
-    });
+    postData(formData);
 
     setCategory("");
     setBudget("");
@@ -38,7 +32,7 @@ export const CreateItem = () => {
   return (
     <div>
       <button className="btn btn-primary" onClick={handleChange}>
-        <IoAddSharp size={20}/>
+        <IoAddSharp size={20} />
         New Allocation
       </button>
       <input

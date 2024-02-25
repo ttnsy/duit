@@ -1,5 +1,5 @@
+import { getData } from "@/lib/fetchAPI";
 import { CreateItem } from "@/components/CreateItem";
-import { getData } from "@/lib/data";
 import { ItemTable } from "@/components/ItemTable";
 
 export default async function Home() {
@@ -12,7 +12,7 @@ export default async function Home() {
         <div className="flex items-center justify-between gap-1 mb-5">
           <CreateItem />
         </div>
-          <ItemTable data={data} groups={groups} />
+        <ItemTable data={data} groups={groups} />
       </div>
     </main>
   );

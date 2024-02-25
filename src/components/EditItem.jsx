@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { IoPencil } from "react-icons/io5";
 
+import { updateData } from "@/lib/fetchAPI";
+
 export const EditItem = ({ item }) => {
   const router = useRouter();
   const [modal, setModal] = useState(false);
@@ -20,14 +22,7 @@ export const EditItem = ({ item }) => {
     e.preventDefault();
 
     const formData = { group, category, budget_plan: budget };
-
-    await fetch("https://v1.appbackend.io/v1/rows/dA6u4jpqjVHH", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify([formData]),
-    });
+    updateData(formData);
 
     router.refresh();
     setModal(false);
