@@ -3,6 +3,8 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { IoAddSharp } from "react-icons/io5";
+import toast from "react-hot-toast";
+
 import { postData } from "@/lib/fetchAPI";
 
 export const CreateItem = () => {
@@ -20,13 +22,19 @@ export const CreateItem = () => {
   async function handleCreateItem(e) {
     e.preventDefault();
 
-    const formData = { group, category, budget_plan: budget };
-    postData(formData);
+    try {
+      const formData = { group, category, budget_plan: budget };
+      postData(formData);
 
-    setCategory("");
-    setBudget("");
-    router.refresh();
-    setModal(false);
+      setCategory("");
+      setBudget("");
+      router.refresh();
+      setModal(false);
+      
+      toast.success(`${budget} allocated to ${category}`);
+    } catch (error) {
+      toast.error(error.message);
+    }
   }
 
   return (

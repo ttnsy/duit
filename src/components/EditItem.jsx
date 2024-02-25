@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { IoPencil } from "react-icons/io5";
 
+import toast from "react-hot-toast";
+
 import { updateData } from "@/lib/fetchAPI";
 
 export const EditItem = ({ item }) => {
@@ -21,11 +23,18 @@ export const EditItem = ({ item }) => {
   async function handleEdit(e) {
     e.preventDefault();
 
-    const formData = { group, category, budget_plan: budget };
-    updateData(formData);
+    try {
+      const formData = { group, category, budget_plan: budget };
+      await updateData(formData);
 
-    router.refresh();
-    setModal(false);
+      router.refresh();
+
+      setModal(false);
+      toast.success(`${group} has updated!`);
+    } catch (error) {
+      setModal(false);
+      toast.error(error.message);
+    }
   }
 
   return (

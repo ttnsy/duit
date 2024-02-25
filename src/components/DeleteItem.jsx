@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { IoTrashOutline } from "react-icons/io5";
+import toast from "react-hot-toast";
 
 import { deleteData } from "@/lib/fetchAPI";
 
@@ -15,10 +16,15 @@ export const DeleteItem = ({ id }) => {
   }
 
   async function handleDelete() {
-    deleteData(id);
+    try {
+      await deleteData(id);
 
-    router.refresh();
-    setModal(false);
+      setModal(false);
+      toast.success(`${id} removed from budget list.`)
+      router.refresh();
+    } catch (error) {
+      toast.error("Failed deleting item:", error.message)
+    }
   }
 
   return (
