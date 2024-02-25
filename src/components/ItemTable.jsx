@@ -1,4 +1,5 @@
 import { ItemGroup } from "@/components/ItemGroup";
+import { ItemTotal } from "@/components/ItemTotal";
 
 export const ItemTable = ({ data, groups }) => {
   return (
@@ -13,6 +14,7 @@ export const ItemTable = ({ data, groups }) => {
         </tr>
       </thead>
       <tbody>
+        <ItemTotal data ={data} />
         <ItemGroup data={data} groups={groups} />
       </tbody>
     </table>

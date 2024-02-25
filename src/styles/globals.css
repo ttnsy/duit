@@ -35,10 +35,6 @@
   th {
     @apply text-center;
   }
-
-  td {
-    @apply text-right;
-  }
 }
 
 @layer components {
@@ -59,10 +55,14 @@
   }
 
   .table-group__data {
-    @apply capitalize;
+    @apply text-right capitalize;
   }
 
   .td-category {
     @apply text-left capitalize;
+  }
+
+  .tr-total > td {
+    @apply text-right font-bold text-cyan-500;
   }
 }

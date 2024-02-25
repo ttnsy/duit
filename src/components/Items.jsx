@@ -9,9 +9,9 @@ export const Items = ({ data }) => {
     return (
       <tr key={item._id}>
         <td className="td-category">{item.category}</td>
-        <td>{budget}</td>
-        <td>{spend}</td>
-        <td>{remaining}</td>
+        <td className="text-right">{budget}</td>
+        <td className="text-right">{spend}</td>
+        <td className="text-right">{remaining}</td>
         <td className="flex justify-center">
           <EditItem item={item} />
           <DeleteItem item={item} />
