@@ -15,7 +15,7 @@ module.exports = {
     },
   },
   daisyui: {
-    themes: ["cupcake"],
+    themes: ["acid"],
   },
   plugins: [require("daisyui")],
 };

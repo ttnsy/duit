@@ -109,7 +109,7 @@ export const EditItem = ({ item }) => {
               <button type="button" className="btn" onClick={handleChange}>
                 Close
               </button>
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-secondary">
                 Save
               </button>
             </div>

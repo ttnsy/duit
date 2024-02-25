@@ -9,7 +9,7 @@ export const ItemTable = ({ data, groups }) => {
           <th>Budget</th>
           <th>Spend</th>
           <th>Remaining</th>
-          <th className="text-center">Actions</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>

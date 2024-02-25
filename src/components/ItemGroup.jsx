@@ -11,10 +11,11 @@ export const ItemGroup = ({ data, groups }) => {
         return (
           <>
             <tr className="table-group">
-              <td className="table-group__data">{item}</td>
+              <td className="table-group__data text-left">{item}</td>
               <td className="table-group__data">{budget}</td>
               <td className="table-group__data">{spend}</td>
               <td className="table-group__data">{remaining}</td>
+              <td className="table-group__data"></td>
             </tr>
             <Items data={filtered} />
           </>
