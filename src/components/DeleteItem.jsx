@@ -47,7 +47,7 @@ export const DeleteItem = ({ id }) => {
             </button>
             <button
               type="button"
-              className="btn-primary"
+              className="btn btn-primary"
               onClick={handleDelete}
             >
               Save
