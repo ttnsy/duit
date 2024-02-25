@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 
 import { deleteData } from "@/lib/fetchAPI";
 
-export const DeleteItem = ({ id }) => {
+export const DeleteItem = ({ item }) => {
   const router = useRouter();
   const [modal, setModal] = useState(false);
 
@@ -17,15 +17,16 @@ export const DeleteItem = ({ id }) => {
 
   async function handleDelete() {
     try {
-      await deleteData(id);
+      await deleteData(item._id);
 
       setModal(false);
-      toast.success(`${id} removed from budget list.`)
+      toast.success(`${item.category} removed from budget list.`)
       router.refresh();
     } catch (error) {
-      toast.error("Failed deleting item:", error.message)
+      toast.error(error.message)
     }
   }
+  const modalTitle = `Delete ${item.category} from budget list?`
 
   return (
     <div>
@@ -40,17 +41,17 @@ export const DeleteItem = ({ id }) => {
       />
       <div className="modal">
         <div className="modal-box">
-          <h3>Delete this budget line?</h3>
+          <h3>{modalTitle}</h3>
           <div className="modal-action">
             <button type="button" className="btn" onClick={handleChange}>
               Close
             </button>
             <button
               type="button"
-              className="btn btn-primary"
+              className="btn btn-error"
               onClick={handleDelete}
             >
-              Save
+              Delete
             </button>
           </div>
         </div>

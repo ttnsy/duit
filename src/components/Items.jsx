@@ -14,7 +14,7 @@ export const Items = ({ data }) => {
         <td>{remaining}</td>
         <td className="flex justify-center">
           <EditItem item={item} />
-          <DeleteItem id={item._id} />
+          <DeleteItem item={item} />
         </td>
       </tr>
     );
