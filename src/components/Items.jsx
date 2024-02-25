@@ -12,7 +12,7 @@ export const Items = ({ data }) => {
         <td className="text-right">{budget}</td>
         <td className="text-right">{spend}</td>
         <td className="text-right">{remaining}</td>
-        <td className="flex justify-center">
+        <td className="flex justify-center gap-1">
           <EditItem item={item} />
           <DeleteItem item={item} />
         </td>
