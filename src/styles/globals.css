@@ -37,4 +37,16 @@
   .create-btn {
     @apply btn btn-primary;
   }
+
+  .table-group {
+    @apply text-sm font-bold text-gray-700 bg-gray-50;
+  }
+
+  .table-group__data {
+    @apply capitalize;
+  }
+
+  .td-category {
+    @apply capitalize;
+  }
 }
