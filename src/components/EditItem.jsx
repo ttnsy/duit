@@ -24,7 +24,7 @@ export const EditItem = ({ item }) => {
     e.preventDefault();
 
     try {
-      const formData = { group, category, budget_plan: budget };
+      const formData = { _id: item._id, group, category, budget_plan: budget };
       await updateData(formData);
 
       router.refresh();
@@ -50,7 +50,7 @@ export const EditItem = ({ item }) => {
       />
       <div className="modal">
         <div className="modal-box">
-          <h3>{item.category}</h3>
+          <h3>Update data</h3>
           <form onSubmit={handleEdit}>
             <div className="form-control">
               <select
