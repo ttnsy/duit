@@ -8,7 +8,7 @@ export const ItemGroup = ({ data, groups }) => {
         return (
           <>
             <tr className="text-sm font-bold text-gray-700 bg-gray-50">
-              <td className="py-2 px-6" colSpan="5">{item}</td>
+              <td colSpan="5">{item}</td>
             </tr>
             <Items data={filtered} />
           </>

@@ -7,13 +7,13 @@ export const Items = ({ data }) => {
       {data.map((item) => {
         return (
           <tr key={item._id}>
-            <td className="py-3 px6">{item.category}</td>
-            <td className="py-3 px6">{item.budget_plan}</td>
-            <td className="py-3 px6">{item.budget_actual}</td>
-            <td className="py-3 px6">
+            <td>{item.category}</td>
+            <td>{item.budget_plan}</td>
+            <td>{item.budget_actual}</td>
+            <td>
               {item.budget_plan - (item.budget_actual || 0)}
             </td>
-            <td className="flex justify-center gap-1 py-3">
+            <td className="flex justify-center">
               <EditItem item={item} />
               <DeleteItem id={item._id} />
             </td>

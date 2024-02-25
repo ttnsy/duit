@@ -4,10 +4,37 @@
 
 @layer base {
   input {
-    @apply ml-3 px-2 py-1 border rounded-lg;
+    @apply input input-bordered w-full max-w-xs;
   }
 
-  button {
-    @apply bg-indigo-500 px-4 py-2 rounded-lg text-white;
+  select {
+    @apply select select-bordered w-full max-w-xs;
+  }
+
+  table {
+    @apply w-full text-sm text-left text-gray-500;
+  }
+
+  thead {
+    @apply text-sm text-gray-700 uppercase;
+  }
+
+  td,
+  th {
+    @apply py-3 px-6;
+  }
+}
+
+@layer components {
+  .main__container {
+    @apply max-w-screen-md mx-auto mt-5;
+  }
+
+  .create-btn__container {
+    @apply flex items-center justify-between gap-1 mb-5;
+  }
+
+  .create-btn {
+    @apply btn btn-primary;
   }
 }

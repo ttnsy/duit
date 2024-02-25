@@ -56,7 +56,6 @@ export const EditItem = ({ item }) => {
               <select
                 name="group"
                 id="group"
-                className="select select-bordered w-full max-w-xs"
                 value={group}
                 onChange={(e) => setGroup(e.target.value)}
               >
@@ -72,7 +71,6 @@ export const EditItem = ({ item }) => {
                 type="text"
                 name="category"
                 id="category"
-                className="input input-bordered w-full max-w-xs"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 required
@@ -84,7 +82,6 @@ export const EditItem = ({ item }) => {
                 type="number"
                 name="budget_plan"
                 id="budget_plan"
-                className="input input-bordered w-full max-w-xs"
                 value={budget}
                 onChange={(e) => setBudget(Number(e.target.value))}
                 required
